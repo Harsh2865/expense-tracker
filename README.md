@@ -2,6 +2,8 @@
 
 A responsive, accessible, polished personal finance web application built with React 19, Vite 6, and Tailwind CSS v4. Features comprehensive income and expense tracking, category breakdowns, financial summaries, real-time charts, local persistence with safe data recovery, and keyboard-first accessibility.
 
+> 🚀 **Live Demo**: Try the deployed application here: [Live Demo](https://expense-tracker-delta-khaki.vercel.app)
+
 ---
 
 ## Table of Contents
