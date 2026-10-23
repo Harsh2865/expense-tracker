@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* ── Design tokens via CSS custom properties ─────────────────────────── */
+:root {
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+  --color-primary-light: #eef2ff;
+  --color-income: #059669;
+  --color-income-light: #d1fae5;
+  --color-income-bg: #ecfdf5;
+  --color-expense: #dc2626;
+  --color-expense-light: #fee2e2;
+  --color-expense-bg: #fef2f2;
+  --color-savings: #2563eb;
+  --color-savings-light: #dbeafe;
+  --color-savings-bg: #eff6ff;
+  --color-balance: #7c3aed;
+  --color-balance-light: #ede9fe;
+  --color-balance-bg: #f5f3ff;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f9fafb;
+  --color-border: #e5e7eb;
+  --color-border-hover: #d1d5db;
+  --color-text: #111827;
+  --color-text-secondary: #6b7280;
+  --color-text-muted: #9ca3af;
+  --color-danger: #dc2626;
+  --color-danger-hover: #b91c1c;
+  --color-warning-bg: #fffbeb;
+  --color-warning-border: #fbbf24;
+  --color-warning-text: #92400e;
+  --color-success: #059669;
+  --radius: 0.5rem;
+  --radius-lg: 0.75rem;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Base reset & typography ─────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--color-text);
+  background: var(--color-surface-alt);
+  line-height: 1.6;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ── Focus ring ──────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ── Dialog / modal backdrop ─────────────────────────────────────────── */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  max-width: 32rem;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  animation: modal-enter 200ms ease-out;
+}
+
+@keyframes modal-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ── Toast animations ────────────────────────────────────────────────── */
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toast-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+}
+
+.toast-enter {
+  animation: toast-in 200ms ease-out;
+}
+
+.toast-exit {
+  animation: toast-out 200ms ease-in forwards;
+}
+
+/* ── Scrollbar styling ───────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* ── Recharts responsive container ───────────────────────────────────── */
+.recharts-responsive-container {
+  width: 100% !important;
+}
